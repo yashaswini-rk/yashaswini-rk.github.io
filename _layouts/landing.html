@@ -16,13 +16,16 @@ layout: compress
 
     <div id="main-wrapper" class="d-flex justify-content-center">
     <main class="landing w-100 d-flex flex-column align-items-center text-center px-3 py-5">
-      <img
-        src="{{ site.avatar | relative_url }}"
-        alt="{{ site.social.name }}"
-        width="240"
-        height="240"
-        class="rounded-circle mb-4"
-      >
+      <div class="avatar-social">
+        <img
+          src="{{ site.avatar | relative_url }}"
+          alt="{{ site.social.name }}"
+          width="240"
+          height="240"
+          class="rounded-circle"
+        >
+        {% include avatar-icons.html %}
+      </div>
       <h1 class="landing-name">{{ site.social.name }}</h1>
       <p class="landing-tagline">{{ page.headline }}</p>
       <p class="landing-intro">{{ page.intro }}</p>
@@ -57,7 +60,18 @@ layout: compress
     <style>
       #sidebar .profile-wrapper { display: none; }
       .landing { min-height: 100vh; justify-content: center; background: var(--main-bg); color: var(--text-color); }
-      .landing-name { font-size: 3rem; font-weight: 700; }
+      .landing .avatar-social { z-index: 2; }
+      .landing img { display: block; margin-bottom: 0.25rem; transition: transform 0.3s ease-in-out; }
+      .landing .avatar-social ~ * { transition: transform 0.3s ease-in-out; }
+      /* growing 25% adds 30px below the 240px photo: push everything under it down to match */
+      .landing .avatar-social:hover img { transform: scale(1.25); }
+      .landing .avatar-social:hover ~ * { transform: translateY(30px); }
+      .landing .avatar-social:hover .avatar-overlay { transform: scale(1.25); }
+      /* the photo is bigger here, so pull a pair of icons closer together */
+      .landing .avatar-icon:first-child:nth-last-child(2) { left: 86%; top: 42%; }
+      .landing .avatar-icon:last-child:nth-child(2) { left: 86%; top: 58%; }
+      .landing .avatar-icon { transform: translate(-50%, -50%) scale(0.8); } /* cancels the overlay scale */
+      .landing-name { font-size: 3rem; font-weight: 700; line-height: 1.1; margin: 0.5rem 0 0.25rem; }
       .landing-tagline { font-size: 1.15rem; font-weight: 600; color: var(--text-muted-color); }
       .landing-intro { max-width: 36rem; font-size: 1.1rem; }
       .landing-btn { padding: 0.7rem 1.4rem; border: 1px solid var(--main-border-color); border-radius: 0.4rem; background: var(--card-bg); color: var(--text-color); font-weight: 600; text-decoration: none; }
