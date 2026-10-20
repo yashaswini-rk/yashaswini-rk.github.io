@@ -66,10 +66,10 @@ layout: compress
       #sidebar .profile-wrapper { display: none; }
       .landing { min-height: 100vh; justify-content: center; background: var(--main-bg); color: var(--text-color); }
       .landing .avatar-social { z-index: 2; }
-      .landing img { display: block; margin-bottom: 0.25rem; transition: transform 0.3s ease-in-out; }
+      .landing img { display: block; margin-bottom: 0.25rem; transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; }
       .landing .avatar-social ~ * { transition: transform 0.3s ease-in-out; }
       /* growing 25% adds 30px below the 240px photo: push everything under it down to match */
-      .landing .avatar-social:hover img { transform: scale(1.25); }
+      .landing .avatar-social:hover img { transform: scale(1.25); box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.6); }
       .landing .avatar-social:hover ~ * { transform: translateY(30px); }
       .landing .avatar-social:hover .avatar-overlay { transform: scale(1.25); }
       /* the photo is bigger here, so pull a pair of icons closer together */
