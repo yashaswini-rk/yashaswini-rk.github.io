@@ -28,6 +28,10 @@ url: "https://yashaswini-rk.github.io"
 github:
   username: yashaswini-rk
 
+# Shown as hover icons on the sidebar avatar; leave empty to hide
+gitlab_username:
+linkedin_username:
+
 social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer

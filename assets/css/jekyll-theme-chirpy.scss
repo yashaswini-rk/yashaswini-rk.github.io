@@ -13,3 +13,45 @@
 ';
 
 /* append your custom style below */
+
+/* social icons that fan out on the right arc of the sidebar avatar on hover */
+.avatar-social {
+  position: relative;
+  width: max-content;
+}
+
+.avatar-overlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transform: translateX(12px);
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.avatar-social:hover .avatar-overlay {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.avatar-icon {
+  position: absolute;
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 5px;
+  transform: translate(-50%, -50%);
+  text-decoration: none;
+  color: #fff !important;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.icon-github { left: 77.6%; top: 26.9%; background-color: #24292e; }
+.icon-github:hover { background-color: #000; }
+.icon-gitlab { left: 86%; top: 50%; background-color: #fc6d26; }
+.icon-gitlab:hover { background-color: #e24329; }
+.icon-linkedin { left: 77.6%; top: 73.1%; background-color: #0077b5; }
+.icon-linkedin:hover { background-color: #005e8a; }
