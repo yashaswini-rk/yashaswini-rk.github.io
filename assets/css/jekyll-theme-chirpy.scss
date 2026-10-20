@@ -95,10 +95,17 @@
   transform: none;
 }
 
-/* icons ride just outside the circle's right edge at -40, 0 and +40 degrees (radius 1.2 x the avatar radius) */
-.icon-github { left: 96%; top: 11.4%; background-color: #24292e; }
+/* icons sit inside the circle on an arc at 0.7 x the avatar radius; the arc closes up to fit however many are shown */
+.avatar-icon { left: 85%; top: 50%; }
+.avatar-icon:first-child:nth-last-child(2) { left: 81.7%; top: 35.2%; }
+.avatar-icon:last-child:nth-child(2) { left: 81.7%; top: 64.8%; }
+.avatar-icon:first-child:nth-last-child(3) { left: 74.7%; top: 25.3%; }
+.avatar-icon:nth-child(2):nth-last-child(2) { left: 85%; top: 50%; }
+.avatar-icon:last-child:nth-child(3) { left: 74.7%; top: 74.7%; }
+
+.icon-github { background-color: #24292e; }
 .icon-github:hover { background-color: #000; }
-.icon-gitlab { left: 110%; top: 50%; background-color: #fc6d26; }
+.icon-gitlab { background-color: #fc6d26; }
 .icon-gitlab:hover { background-color: #e24329; }
-.icon-linkedin { left: 96%; top: 88.6%; background-color: #0077b5; }
+.icon-linkedin { background-color: #0077b5; }
 .icon-linkedin:hover { background-color: #005e8a; }
