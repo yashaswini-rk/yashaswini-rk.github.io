@@ -12,7 +12,10 @@ layout: compress
   {% include head.html lang=lang %}
 
   <body>
-    <main class="landing d-flex flex-column align-items-center text-center px-3 py-5">
+    {% include sidebar.html lang=lang %}
+
+    <div id="main-wrapper" class="d-flex justify-content-center">
+    <main class="landing w-100 d-flex flex-column align-items-center text-center px-3 py-5">
       <img
         src="{{ site.avatar | relative_url }}"
         alt="{{ site.social.name }}"
@@ -49,8 +52,10 @@ layout: compress
         {% endfor %}
       </div>
     </main>
+    </div>
 
     <style>
+      #sidebar .profile-wrapper { display: none; }
       .landing { min-height: 100vh; justify-content: center; background: var(--main-bg); color: var(--text-color); }
       .landing-name { font-size: 3rem; font-weight: 700; }
       .landing-tagline { font-size: 1.15rem; font-weight: 600; color: var(--text-muted-color); }
