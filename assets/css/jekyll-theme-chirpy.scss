@@ -109,3 +109,10 @@
 .icon-gitlab:hover { background-color: #e24329; }
 .icon-linkedin { background-color: #0077b5; }
 .icon-linkedin:hover { background-color: #005e8a; }
+
+/* centre the footer icons in the sidebar */
+#sidebar .sidebar-bottom {
+  justify-content: center;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
