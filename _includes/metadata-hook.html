@@ -19,6 +19,8 @@
         sessionStorage.removeItem(KEY);
       } catch (e) {}
       if (!el || !now || !from || !el.animate) return;
+      // same spot (sidebar page to sidebar page): nothing to animate
+      if (Math.abs(from.x - now.x) < 2 && Math.abs(from.y - now.y) < 2 && Math.abs(from.w - now.w) < 2) return;
       // the sidebar clips overflow and sits under the page: lift it while the avatar travels
       var bar = el.closest('#sidebar');
       if (bar) { bar.style.overflow = 'visible'; bar.style.zIndex = 1000; }
