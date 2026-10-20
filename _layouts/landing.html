@@ -62,20 +62,6 @@ layout: compress
 
     <div id="mask" class="d-none position-fixed top-0 start-0 w-100 h-100 z-1"></div>
 
-    <script>
-      // phone-width sidebar toggle, same behaviour as the theme's top bar button
-      (function () {
-        var bar = document.getElementById('sidebar'), mask = document.getElementById('mask'), open = false;
-        function toggle() {
-          open = !open;
-          document.body.toggleAttribute('sidebar-display', open);
-          bar.classList.toggle('z-2', open);
-          mask.classList.toggle('d-none', !open);
-        }
-        document.getElementById('sidebar-trigger').onclick = mask.onclick = toggle;
-      })();
-    </script>
-
     <style>
       #sidebar .profile-wrapper { display: none; }
       .landing { min-height: 100vh; justify-content: center; background: var(--main-bg); color: var(--text-color); }
