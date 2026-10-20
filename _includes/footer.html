@@ -9,7 +9,16 @@
 >
   <p>
     {{- '©' }}
-    <time>{{ 'now' | date: '%Y' }}</time>
+    <time id="footer-year">{{ 'now' | date: '%Y' }}</time>
+    <script>
+      // year from the web server's clock (HTTP Date header), not the visitor's; keeps the build-time year on failure
+      fetch(location.href, { method: 'HEAD', cache: 'no-store' })
+        .then(function (r) {
+          var y = new Date(r.headers.get('Date')).getFullYear();
+          if (y > 2000) document.getElementById('footer-year').textContent = y;
+        })
+        .catch(function () {});
+    </script>
 
     {% if site.social.links %}
       <a href="{{ site.social.links[0] }}">{{ site.social.name }}</a>.
