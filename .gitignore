@@ -3,3 +3,6 @@ _site/
 .sass-cache/
 Gemfile.lock
 node_modules/
+_sass/vendors/
+assets/js/dist/
+package-lock.json
