@@ -46,7 +46,7 @@ layout: compress
 
       <div class="d-flex flex-wrap justify-content-center gap-3">
         {% for link in page.links %}
-          <a class="landing-btn" href="{{ link.url | relative_url }}">
+          <a class="landing-btn" href="{{ link.url | relative_url }}"{% if link.new_tab %} target="_blank" rel="noopener"{% endif %}>
             <i class="{{ link.icon }}"></i> {{ link.title }}
           </a>
         {% endfor %}
