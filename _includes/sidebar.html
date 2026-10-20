@@ -13,13 +13,13 @@
       </a>
       <div class="avatar-overlay">
         {%- if site.github.username %}
-          <a class="avatar-icon icon-github" href="https://github.com/{{ site.github.username }}" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a class="avatar-icon icon-github" href="https://github.com/{{ site.github.username }}" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i><span class="avatar-tip"><i class="fab fa-github"></i>{{ site.github.username }}</span></a>
         {%- endif -%}
         {%- if site.gitlab_username %}
-          <a class="avatar-icon icon-gitlab" href="https://gitlab.com/{{ site.gitlab_username }}" target="_blank" rel="noopener" aria-label="GitLab"><i class="fab fa-gitlab"></i></a>
+          <a class="avatar-icon icon-gitlab" href="https://gitlab.com/{{ site.gitlab_username }}" target="_blank" rel="noopener" aria-label="GitLab"><i class="fab fa-gitlab"></i><span class="avatar-tip"><i class="fab fa-gitlab"></i>{{ site.gitlab_username }}</span></a>
         {%- endif -%}
         {%- if site.linkedin_username %}
-          <a class="avatar-icon icon-linkedin" href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a class="avatar-icon icon-linkedin" href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i><span class="avatar-tip"><i class="fab fa-linkedin-in"></i>{{ site.linkedin_username }}</span></a>
         {%- endif %}
       </div>
     </div>

@@ -20,19 +20,33 @@
   width: max-content;
 }
 
+/* the avatar grows on hover; transforms keep the sidebar layout from shifting */
+#sidebar #avatar {
+  transition: transform 0.3s ease-in-out;
+}
+
+#sidebar .avatar-social:hover #avatar {
+  transform: scale(1.33);
+}
+
 .avatar-overlay {
   position: absolute;
   inset: 0;
   opacity: 0;
-  transform: translateX(12px);
   pointer-events: none;
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
 .avatar-social:hover .avatar-overlay {
   opacity: 1;
-  transform: none;
   pointer-events: auto;
+  transform: scale(1.33);
+}
+
+/* let the username tips overflow the sidebar while hovering the avatar */
+#sidebar:has(.avatar-social:hover) {
+  overflow: visible;
+  z-index: 100;
 }
 
 .avatar-icon {
@@ -43,10 +57,42 @@
   text-align: center;
   font-size: 16px;
   border-radius: 5px;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(0.75); /* cancels the overlay scale */
   text-decoration: none;
   color: #fff !important;
   transition: background-color 0.3s ease-in-out;
+}
+
+.avatar-tip {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  height: 36px;
+  padding: 0 12px 0 10px;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 600;
+  background: inherit;
+  border-radius: 0 5px 5px 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(-8px);
+  transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
+
+  i { margin-right: 0.5em; }
+}
+
+.avatar-icon:hover,
+.avatar-icon:focus {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.avatar-icon:hover .avatar-tip,
+.avatar-icon:focus .avatar-tip {
+  opacity: 1;
+  visibility: visible;
+  transform: none;
 }
 
 .icon-github { left: 77.6%; top: 26.9%; background-color: #24292e; }
