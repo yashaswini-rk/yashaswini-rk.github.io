@@ -1,1 +1,49 @@
 <!-- A placeholder to allow defining custom metadata -->
+
+<!-- Slide the avatar between its landing-page and sidebar positions -->
+<script>
+  (function () {
+    var KEY = 'avatarRect';
+    var target = function () {
+      return document.querySelector('.landing img') || document.getElementById('avatar');
+    };
+    var rectOf = function (el) {
+      var r = el && el.getBoundingClientRect();
+      return r && r.width ? { x: r.left, y: r.top, w: r.width } : null;
+    };
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var el = target(), now = rectOf(el), from;
+      try {
+        from = JSON.parse(sessionStorage.getItem(KEY));
+        sessionStorage.removeItem(KEY);
+      } catch (e) {}
+      if (!el || !now || !from || !el.animate) return;
+      // the sidebar clips overflow and sits under the page: lift it while the avatar travels
+      var bar = el.closest('#sidebar');
+      if (bar) { bar.style.overflow = 'visible'; bar.style.zIndex = 1000; }
+      var anim = el.animate(
+        [
+          {
+            transform:
+              'translate(' + (from.x - now.x) + 'px,' + (from.y - now.y) + 'px) scale(' + from.w / now.w + ')',
+            transformOrigin: 'top left'
+          },
+          { transform: 'none', transformOrigin: 'top left' }
+        ],
+        { duration: 500, easing: 'ease-in-out' }
+      );
+      anim.onfinish = function () {
+        if (bar) { bar.style.overflow = ''; bar.style.zIndex = ''; }
+      };
+    });
+
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href]');
+      var r = rectOf(target());
+      if (a && r && a.origin === location.origin) {
+        try { sessionStorage.setItem(KEY, JSON.stringify(r)); } catch (err) {}
+      }
+    });
+  })();
+</script>
