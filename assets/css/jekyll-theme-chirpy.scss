@@ -95,9 +95,10 @@
   transform: none;
 }
 
-.icon-github { left: 77.6%; top: 26.9%; background-color: #24292e; }
+/* icons ride just outside the circle's right edge at -40, 0 and +40 degrees (radius 1.2 x the avatar radius) */
+.icon-github { left: 96%; top: 11.4%; background-color: #24292e; }
 .icon-github:hover { background-color: #000; }
-.icon-gitlab { left: 86%; top: 50%; background-color: #fc6d26; }
+.icon-gitlab { left: 110%; top: 50%; background-color: #fc6d26; }
 .icon-gitlab:hover { background-color: #e24329; }
-.icon-linkedin { left: 77.6%; top: 73.1%; background-color: #0077b5; }
+.icon-linkedin { left: 96%; top: 88.6%; background-color: #0077b5; }
 .icon-linkedin:hover { background-color: #005e8a; }
